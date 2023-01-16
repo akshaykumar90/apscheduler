@@ -680,7 +680,7 @@ class SQLAlchemyDataStore(BaseExternalDataStore):
                             )
                         )
                         .order_by(self.t_jobs.c.created_at)
-                        .with_for_update(skip_locked=True)
+                        .with_for_update(skip_locked=True, of=self.t_jobs)
                         .limit(limit)
                     )
 
